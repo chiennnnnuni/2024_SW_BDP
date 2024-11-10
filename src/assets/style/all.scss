@@ -1,0 +1,260 @@
+@use "reset";
+@use "sass:color";
+
+$uni-navy: #041e42;
+$baby-blue: color.adjust($uni-navy, $lightness: 70%);
+$gray-blue: #acb8cc;
+$gopro-pink: #fda0d7;
+$yellow: #efcb32;
+$rounded-1: 10px;
+$rounded-2: 15px;
+
+@font-face {
+  font-family: 'JfHuninn';
+  src: url('../fonts/jf-openhuninn-2.1.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'MantouSans';
+  src: url('../fonts/MantouSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+body {
+  background: $uni-navy;
+  font-family: "JfHuninn", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: "MantouSans";
+  color: $gray-blue;
+  font-size: 32px;
+  &-spacing {
+    letter-spacing: 2px;
+  }
+}
+
+.footer{
+  color: rgba($baby-blue, 0.2);
+  &-link{
+    color: inherit;
+  }
+}
+
+.player {
+  width: 320px;
+  margin: 24px auto;
+  padding: 30px;
+  background: rgba($gray-blue, 0.25);
+  box-shadow: 0px 16px 36px -6px rgba($gray-blue, 0.3);
+  border-radius: $rounded-2;
+  @media screen and (max-width: 576px), (max-height: 500px) {
+    width: 80%;
+    margin: 72px 20px 28px;
+    padding: 20px 20px 24px;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+    @media screen and (max-width: 576px), (max-height: 500px) {
+      flex-direction: column;
+    }
+  }
+
+  &-cover {
+    width: 85%;
+    aspect-ratio: 1 / 1;
+    margin-left: -60px;
+    position: relative;
+    z-index: 2;
+    border-radius: $rounded-2;
+
+    @media screen and (max-width: 576px), (max-height: 500px) {
+      margin: -60px auto 24px;
+    }
+
+    &__item {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: rgba($baby-blue, 0.2);
+      width: 100%;
+      height: 100%;
+      border-radius: $rounded-2;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &:before {
+        content: "";
+        background: inherit;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 10px 40px 0px rgba($gray-blue, 0.5);
+        display: block;
+        z-index: 1;
+        position: absolute;
+        top: 25px;
+        transform: scale(0.9);
+        filter: blur(10px);
+        opacity: 0.6;
+        border-radius: $rounded-2;
+      }
+
+      &:after {
+        content: "";
+        background: inherit;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 10px 40px 0px rgba($uni-navy, 0.5);
+        display: inline-block;
+        z-index: 1;
+        position: absolute;
+        border-radius: $rounded-2;
+      }
+    }
+  }
+
+  &-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    
+    @media screen and (max-width: 576px), (max-height: 500px) {
+      flex-direction: row;
+      padding-left: 0;
+    }
+
+    &__item {
+      display: inline-flex;
+      font-size: 22px;
+      padding: 5px;
+      margin-bottom: 8px;
+      color: $gray-blue;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+
+      @media screen and (max-width: 576px), (max-height: 500px) {
+        font-size: 25px;
+        margin-right: 10px;
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 380px) {
+        &:nth-child(1){
+          display: none;
+        } 
+      }
+
+      &.-xl {
+        display: inline-flex;
+        width: auto;
+        height: auto;
+        margin: 8px auto -24px;
+        color: $gopro-pink;
+        font-size: 65px;
+        filter: drop-shadow(0 11px 6px rgba($gray-blue, 0.3));
+
+        @media screen and (max-width: 576px), (max-height: 500px) {
+          margin: 0 0 0 auto;
+          font-size: 75px;
+        }
+      }
+
+      .icon {
+        position: relative;
+        z-index: 2;
+      }
+
+      &.active {
+        color: 	$gopro-pink;
+      }
+    }
+  }
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  &__duration {
+    color: rgba($baby-blue, 0.3);
+    font-weight: 700;
+    font-size: 16px;
+    align-self: flex-end;
+  }
+  &__time {
+    color: rgba($baby-blue, 0.3);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  &__bar {
+    height: 6px;
+    width: 100%;
+    cursor: pointer;
+    background-color: $gray-blue;
+    display: inline-block;
+    border-radius: $rounded-1;
+    margin: 6px auto;
+  }
+  &__current {
+    height: inherit;
+    width: 0%;
+    border-radius: $rounded-1;
+    &.active {
+      background-color: $gopro-pink;
+    }
+  }
+}
+
+.album-info {
+  margin: 32px 0px 8px;
+  color: $yellow;
+  word-break: break-all;
+  @media screen and (max-width: 576px), (max-height: 500px) {
+    margin-top: 16px;
+  }
+
+  &__track {
+    font-size: 22px;
+    line-height: 1.5em;
+    @media screen and (max-width: 576px), (max-height: 500px) {
+      font-size: 24px;
+    }
+  }
+  &__name {
+    font-size: 14px;
+    opacity: 0.7;
+    line-height: 1.5em;
+    @media screen and (max-width: 576px), (max-height: 500px)  {
+      font-size: 16px;
+    }
+  }
+}
