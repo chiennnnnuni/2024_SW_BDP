@@ -43,7 +43,13 @@
       <!-- 曲目資訊 -->
       <div class="album-info" v-if="currentTrack">
         <div class="album-info__track">{{ currentTrack.name || '--'}}</div>
-        <div class="album-info__name">{{ currentTrack.artist || '--' }}</div>
+        <div class="album-info__name">{{ currentTrack.artist || '--' }}
+          <a :href="currentTrack.link" target="_blank" style="color: inherit;">
+            <svg class="icon" style="margin-bottom: -2px;">
+              <use xlink:href="#icon-link"></use>
+            </svg>
+          </a>
+        </div>
       </div>
       <!-- 進度條 -->
       <div class="progress" ref="progress">
@@ -156,6 +162,13 @@
           d="M2.304 5.248c-1.248 0-2.304 1.024-2.304 2.304v16.928c0 1.248 1.024 2.304 2.304 2.304s2.304-1.024 2.304-2.304v-16.928c-0.064-1.28-1.056-2.304-2.304-2.304z">
         </path>
       </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24">
+        <title>link</title>
+        <path d="M16,3h4.44a.56.56,0,0,1,.56.56V8" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+        </path>
+        <line x1="20.84" y1="3.16" x2="12" y2="12" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line>
+        <path d="M21,12v8a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V4A1,1,0,0,1,4,3h8" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+      </symbol>
     </defs>
   </svg>
 </template>
@@ -232,12 +245,31 @@ export default {
     },
     nextRandomTrack(){
       this.prevTracks.push(this.currentTrack);
-      this.shuffleMode = true;
-      const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
-      const nextTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
-      this.currentTrack = nextTrack;
+      // this.shuffleMode = true;
+      // const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
+      // const nextTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
+      // this.currentTrack = nextTrack;
 
+      // this.resetPlayer();
+      this.currentTrack = this.tracks[this.prevTracks.length];
       this.resetPlayer();
+    },
+    getToday(){
+      const time = new Date();
+      const month = time.getMonth() + 1;
+      const date = time.getDate();
+      const day = time.getDay();  // Sun: 0, Mon: 1 
+      const mmdd = `${month < 10 ? '0' : ''}${month}${date < 10 ? '0' : ''}${date}`;
+
+      const seoulHour = time.toLocaleString('en-US', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        hour12: false
+      })
+
+      console.log('tw mmdd:', mmdd);
+      console.log('tw 星期幾:', day);
+      console.log("seoulHour:", seoulHour);
     },
     shuffleTracks(tracks) {
       // 根據今天是星期幾來設置 priorityFactor
@@ -293,11 +325,12 @@ export default {
     };
   },
   mounted() {
-    this.tracks = this.shuffleTracks(this.tracks);
-    console.log(this.tracks);
-    
+    // this.tracks = this.shuffleTracks(this.tracks);
     this.currentTrack = this.tracks[0];
-    this.audio.src = this.currentTrack.source
+    this.audio.src = this.currentTrack.source;
+
+    this.getToday();
+    
   }
 }
 </script>
