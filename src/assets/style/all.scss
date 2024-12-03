@@ -72,9 +72,9 @@ body {
   box-shadow: 0px 16px 36px -6px rgba($gray-blue, 0.3);
   border-radius: $rounded-2;
   @media screen and (max-width: 576px), (max-height: 500px) {
-    width: 80%;
+    width: 85%;
     margin: 72px 20px 28px;
-    padding: 20px 20px 24px;
+    padding: 20px 24px 24px;
   }
   &__top {
     display: flex;
@@ -234,6 +234,16 @@ body {
   }
 }
 
+.badge {
+  display: inline-block;
+  padding: 4px 6px;
+  font-size: 10px;
+  border: 1px solid $gray-blue;
+  color: $gray-blue;
+  border-radius: 4px;
+  line-height: 1;
+}
+
 .album-info {
   margin: 32px 0px 8px;
   color: $yellow;
@@ -242,14 +252,22 @@ body {
     margin-top: 16px;
   }
 
-  &__track {
+  &__title {
+    position: relative;
     font-size: 22px;
     line-height: 1.5em;
+    margin-bottom: 4px;
     @media screen and (max-width: 576px), (max-height: 500px) {
       font-size: 24px;
     }
+    .badge {
+      position: absolute;
+      z-index: 1;
+      top: -8px;
+      left: -10px;
+    }
   }
-  &__name {
+  &__subTitle {
     font-size: 14px;
     opacity: 0.7;
     line-height: 1.5em;
