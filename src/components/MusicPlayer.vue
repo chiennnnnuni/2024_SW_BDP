@@ -43,8 +43,8 @@
       <!-- 曲目資訊 -->
       <div class="album-info" v-if="currentTrack">
         <div class="album-info__title">
-          <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定</span>
-          <span style="position: relative; z-index: 2;">{{ currentTrack.title || '--'}}</span>
+          <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定
+          </span>{{ currentTrack.title || '--'}}
         </div>
         <div class="album-info__subTitle">{{ currentTrack.subTitle || '--' }}
           <a v-if="currentTrack.link" :href="currentTrack.link" target="_blank" style="color: inherit;">
@@ -300,9 +300,13 @@ export default {
     resetPlayer() {
       this.barWidthPercent = 0;
       this.audio.src = this.currentTrack.source;
-      setTimeout(() => {
-        this.isPlaying ? this.audio.play() : this.audio.pause();
-      }, 300);
+      this.isPlaying ? this.audio.play() : this.audio.pause();
+    },
+    handleVisibilityChange() {
+      if (document.hidden) {
+        this.audio.pause();
+        this.isPlaying = false;
+      }
     }
   },
   created() {
@@ -323,9 +327,13 @@ export default {
     this.currentTrack = this.tracks[0];
     this.audio.src = this.currentTrack.source;
 
-    this.getToday();
-    
-  }
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+
+    // this.getToday();
+  },
+  beforeDestroy() {
+    document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+  },
 }
 </script>
 

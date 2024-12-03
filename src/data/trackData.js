@@ -10,7 +10,7 @@ export const tracks = [
   },
   {
     "id": 2,
-    "title": "向未知的明天出發（下班版）",
+    "title": "向未知的明天出發_下班版",
     "subTitle": "230215 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/2.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/2.mp3', import.meta.url).href,
@@ -19,7 +19,7 @@ export const tracks = [
   },
   {
     "id": 3,
-    "title": "向未知的明天出發（哼唱版）",
+    "title": "向未知的明天出發_哼唱版",
     "subTitle": "230208 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/3.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/3.mp3', import.meta.url).href,
@@ -64,7 +64,7 @@ export const tracks = [
     "subTitle": "2023 PADO 演唱會電吉他出道舞台",
     "cover": new URL('@/assets/images/8.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/8.mp3', import.meta.url).href,
-    "link": ''
+    "link": "https://youtu.be/5CsKhTm2Rxc?si=iNTQiiNMd6FbRQlM"
   },
   {
     "id": 9,
@@ -184,7 +184,7 @@ export const tracks = [
     "subTitle": "2021 Tipco 代言歌曲",
     "cover": new URL('@/assets/images/23.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/23.mp3', import.meta.url).href,
-    "link": ""
+    "link": "https://youtu.be/5qMemfWRFPk?si=lzupHK1Be17T3Qxq"
   },
   {
     "id": 24,
@@ -410,7 +410,7 @@ export const tracks = [
   {
     "id": 51,
     "title": "會想起成員的歌",
-    "subTitle": "The 1975 - Guys",
+    "subTitle": "210410 Day6 Kiss the radio 推薦曲",
     "cover": new URL('@/assets/images/51.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/51.mp3', import.meta.url).href,
     "link": "https://podcasts.apple.com/tw/podcast/04-10-%ED%86%A0/id1541765805?i=1000516605438"
@@ -418,7 +418,7 @@ export const tracks = [
   {
     "id": 52,
     "title": "美好的世巡回憶",
-    "subTitle": "210731 Day6의 키스 더 라디오",
+    "subTitle": "210731 Day6 Kiss the radio 推薦曲",
     "cover": new URL('@/assets/images/52.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/52.mp3', import.meta.url).href,
     "link": "https://youtu.be/BZqX2mrKISo?si=2XpaoGOm7ZtcSnj0"
@@ -450,7 +450,7 @@ export const tracks = [
   {
     "id": 56,
     "title": "成功的粉絲",
-    "subTitle": "S.M.THE BALLAD - Hot Times",
+    "subTitle": "210828 Day6 Kiss the radio 推薦曲",
     "cover": new URL('@/assets/images/56.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/56.mp3', import.meta.url).href,
     "link": "https://x.com/oyoy6200/status/1722606902272778674"
