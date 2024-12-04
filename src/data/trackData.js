@@ -23,7 +23,7 @@ export const tracks = [
     "subTitle": "230208 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/3.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/3.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/EEbEh4MYNSU?si=HFdC9OxDOKeFyeeB&t=7363",
+    "link": "https://www.youtube.com/live/EEbEh4MYNSU?si=h4WZaaByp6DN_6nJ",
     "limited": "夜間"
   },
   {

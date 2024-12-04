@@ -64,8 +64,12 @@
       </div>
     </div>
     <div class="footer">
-      Inspired by
-      <a href="https://github.com/itanand/mini-music-player" target="_blank" class="footer-link">itanand</a>
+      <div>Inspired by
+        <a href="https://github.com/itanand/mini-music-player" target="_blank" class="footer-link">itanand</a>.
+      </div>
+      <div>Background by
+        <a href="https://www.vecteezy.com/video/2017224-small-particles-and-stars-moving-on-galaxy" target="_blank" class="footer-link">Vecteezy</a>.
+      </div>
     </div>
   </div>
   <!-- svg 模板 -->
@@ -215,16 +219,21 @@ export default {
     },
     clickProgress(e) {
       this.isPlaying = true;
-      this.audio.pause();
 
-      let ratio = this.updateBarWidth(e.pageX);
+      const progressBar = this.$refs.progress;
+      const progressBarRect = progressBar.getBoundingClientRect();
+
+      let clickX = e.pageX - progressBarRect.left; 
+      let ratio = this.updateBarWidth(clickX);
+
       this.audio.currentTime = this.audio.duration * ratio;
       this.audio.play();
     },
     updateBarWidth(clickX) {
       let progress = this.$refs.progress;
-      let barWidthX = clickX - progress.offsetLeft;
-      let ratio = barWidthX / progress.offsetWidth;
+      let progressBarWidth = progress.querySelector('.progress__bar').offsetWidth;
+      let ratio = clickX / progressBarWidth;
+
       this.barWidthPercent = (ratio * 100).toFixed(2) + "%";
       return ratio;
     },
