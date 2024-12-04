@@ -249,14 +249,14 @@ export default {
     },
     nextRandomTrack(){
       this.prevTracks.push(this.currentTrack);
-      // this.shuffleMode = true;
-      // const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
-      // const nextTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
-      // this.currentTrack = nextTrack;
+      this.shuffleMode = true;
+      const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
+      const nextTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
+      this.currentTrack = nextTrack;
 
-      // this.resetPlayer();
-      this.currentTrack = this.tracks[this.prevTracks.length];
       this.resetPlayer();
+      // this.currentTrack = this.tracks[this.prevTracks.length];
+      // this.resetPlayer();
     },
     getToday(){
       const time = new Date();
@@ -310,7 +310,9 @@ export default {
     resetPlayer() {
       this.barWidthPercent = 0;
       this.audio.src = this.currentTrack.source;
-      this.isPlaying ? this.audio.play() : this.audio.pause();
+      setTimeout(() => {
+        this.isPlaying ? this.audio.play() : this.audio.pause();
+      }, 100);
     },
     handleVisibilityChange() {
       if (document.hidden) {
@@ -333,11 +335,11 @@ export default {
     };
   },
   mounted() {
-    // this.tracks = this.shuffleTracks(this.tracks);
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+    this.tracks = this.shuffleTracks(this.tracks);
     this.currentTrack = this.tracks[0];
     this.audio.src = this.currentTrack.source;
 
-    document.addEventListener('visibilitychange', this.handleVisibilityChange);
 
     // this.getToday();
   },
