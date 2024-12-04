@@ -6,8 +6,10 @@
       <div class="player__top">
         <!-- 圖片 -->
         <div class="player-cover">
-          <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})` }">
-            <img :src="currentTrack.cover"/>
+          <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
+            <transition name="fade-in">
+              <img v-show="imgShow" :src="currentTrack.cover"/>
+            </transition>
           </div>
         </div>
         <!-- 控制按鈕 -->
@@ -42,7 +44,7 @@
         </div>
       </div>
       <!-- 曲目資訊 -->
-      <div class="album-info" v-if="currentTrack">
+      <div class="album-info">
         <div class="album-info__title">
           <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定
           </span>{{ currentTrack.title || '--'}}
@@ -190,6 +192,7 @@ export default {
       shuffleMode: false,
       preTrackBtnStyle: 0.3,
       liked: false,
+      imgShow: true
     };
   },
   watch: {
@@ -248,6 +251,7 @@ export default {
       this.resetPlayer();
     },
     nextRandomTrack(){
+      this.imgShow = false;
       this.prevTracks.push(this.currentTrack);
       this.shuffleMode = true;
       const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
@@ -255,6 +259,7 @@ export default {
       this.currentTrack = nextTrack;
 
       this.resetPlayer();
+      this.imgShow = true;
       // this.currentTrack = this.tracks[this.prevTracks.length];
       // this.resetPlayer();
     },
