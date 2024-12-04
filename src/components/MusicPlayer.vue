@@ -6,8 +6,9 @@
       <div class="player__top">
         <!-- 圖片 -->
         <div class="player-cover">
-          <div class="player-cover__item"
-          :style="{ backgroundImage: `url(${currentTrack.cover})` }"></div>
+          <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})` }">
+            <img :src="currentTrack.cover"/>
+          </div>
         </div>
         <!-- 控制按鈕 -->
         <div class="player-controls">
@@ -67,7 +68,7 @@
       <div>Inspired by
         <a href="https://github.com/itanand/mini-music-player" target="_blank" class="footer-link">itanand</a>.
       </div>
-      <div>Background by
+      <div>Background from
         <a href="https://www.vecteezy.com/video/2017224-small-particles-and-stars-moving-on-galaxy" target="_blank" class="footer-link">Vecteezy</a>.
       </div>
     </div>
