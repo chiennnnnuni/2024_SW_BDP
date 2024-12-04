@@ -6,9 +6,11 @@
       <div class="player__top">
         <!-- 圖片 -->
         <div class="player-cover">
-          <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
-            <img :src="currentTrack.cover"/>
-          </div>
+          <transition name="fade-in">
+            <div class="player-cover__item" :key="currentTrack.id" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
+              <img :src="currentTrack.cover"/>
+            </div>
+          </transition>
         </div>
         <!-- 控制按鈕 -->
         <div class="player-controls">
