@@ -8,7 +8,7 @@
         <div class="player-cover">
           <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
             <transition name="fade-in">
-              <img v-show="imgShow" :src="currentTrack.cover"/>
+              <img v-show="imgLoaded" :src="currentTrack.cover" @load="onImageLoad"/>
             </transition>
           </div>
         </div>
@@ -192,15 +192,18 @@ export default {
       shuffleMode: false,
       preTrackBtnStyle: 0.3,
       liked: false,
-      imgShow: true
+      imgLoaded: true
     };
   },
   watch: {
     'currentTrack.id'(n,o){
       this.preTrackBtnStyle = this.prevTracks.length === 0 ? 0.3 : 1
-    }
+    },
   },
   methods: {
+    onImageLoad() {
+      this.imgLoaded = true;
+    },
     togglePlay() {
       this.audio.paused ? this.audio.play() : this.audio.pause();
       this.isPlaying = !this.audio.paused;
@@ -245,23 +248,24 @@ export default {
       if (!this.prevTracks.length){
         return
       }
+      this.imgLoaded = false;
+      this.audio.pause();
       this.currentTrack = this.prevTracks[this.prevTracks.length - 1];
-      this.audio.src = this.currentTrack.source;
       this.prevTracks.pop();
       this.resetPlayer();
     },
     nextRandomTrack(){
-      this.imgShow = false;
+      this.imgLoaded = false;
       this.prevTracks.push(this.currentTrack);
       this.shuffleMode = true;
+
       const tracksOtherThenCurrent = this.tracks.filter(track => track.id !== this.currentTrack.id);
       const nextTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
-      this.currentTrack = nextTrack;
 
+      this.audio.pause();
+      this.currentTrack = nextTrack;
+      
       this.resetPlayer();
-      this.imgShow = true;
-      // this.currentTrack = this.tracks[this.prevTracks.length];
-      // this.resetPlayer();
     },
     getToday(){
       const time = new Date();
@@ -315,9 +319,9 @@ export default {
     resetPlayer() {
       this.barWidthPercent = 0;
       this.audio.src = this.currentTrack.source;
-      setTimeout(() => {
-        this.isPlaying ? this.audio.play() : this.audio.pause();
-      }, 100);
+      this.isPlaying ? this.audio.play() : this.audio.pause();
+      // setTimeout(() => {
+      // }, 100);
     },
     handleVisibilityChange() {
       if (document.hidden) {
