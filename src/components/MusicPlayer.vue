@@ -7,9 +7,7 @@
         <!-- 圖片 -->
         <div class="player-cover">
           <div class="player-cover__item" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
-            <transition name="fade-in">
-              <img v-show="imgLoaded" :src="currentTrack.cover" @load="onImageLoad"/>
-            </transition>
+            <img :src="currentTrack.cover"/>
           </div>
         </div>
         <!-- 控制按鈕 -->
@@ -192,7 +190,6 @@ export default {
       shuffleMode: false,
       preTrackBtnStyle: 0.3,
       liked: false,
-      imgLoaded: true
     };
   },
   watch: {
@@ -201,9 +198,6 @@ export default {
     },
   },
   methods: {
-    onImageLoad() {
-      this.imgLoaded = true;
-    },
     togglePlay() {
       this.audio.paused ? this.audio.play() : this.audio.pause();
       this.isPlaying = !this.audio.paused;
@@ -248,14 +242,12 @@ export default {
       if (!this.prevTracks.length){
         return
       }
-      this.imgLoaded = false;
       this.audio.pause();
       this.currentTrack = this.prevTracks[this.prevTracks.length - 1];
       this.prevTracks.pop();
       this.resetPlayer();
     },
     nextRandomTrack(){
-      this.imgLoaded = false;
       this.prevTracks.push(this.currentTrack);
       this.shuffleMode = true;
 
@@ -319,9 +311,9 @@ export default {
     resetPlayer() {
       this.barWidthPercent = 0;
       this.audio.src = this.currentTrack.source;
-      this.isPlaying ? this.audio.play() : this.audio.pause();
-      // setTimeout(() => {
-      // }, 100);
+      setTimeout(() => {
+        this.isPlaying ? this.audio.play() : this.audio.pause();
+      }, 100);
     },
     handleVisibilityChange() {
       if (document.hidden) {
