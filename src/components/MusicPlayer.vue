@@ -348,8 +348,11 @@ export default {
     this.currentTrack = this.tracks[0];
     this.audio.src = this.currentTrack.source;
 
-
     // this.getToday();
+
+    setTimeout(() => {
+      this.$emit('loaded');
+    }, 1000); 
   },
   beforeDestroy() {
     document.removeEventListener('visibilitychange', this.handleVisibilityChange);
