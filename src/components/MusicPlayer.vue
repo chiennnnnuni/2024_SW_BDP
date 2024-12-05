@@ -6,7 +6,7 @@
       <div class="player__top">
         <!-- 圖片 -->
         <div class="player-cover">
-          <transition name="fade-in">
+          <transition name="move" mode="out-in">
             <div class="player-cover__item" :key="currentTrack.id" :style="{ backgroundImage: `url(${currentTrack.cover})`}">
               <img :src="currentTrack.cover"/>
             </div>
@@ -44,19 +44,21 @@
         </div>
       </div>
       <!-- 曲目資訊 -->
-      <div class="album-info">
-        <div class="album-info__title">
-          <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定
-          </span>{{ currentTrack.title || '--'}}
+      <transition name="fade" mode="out-in">
+        <div class="album-info" :key="currentTrack.id">
+          <div class="album-info__title">
+            <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定
+            </span>{{ currentTrack.title || '--'}}
+          </div>
+          <div class="album-info__subTitle">{{ currentTrack.subTitle || '--' }}
+            <a v-if="currentTrack.link" :href="currentTrack.link" target="_blank" style="color: inherit;">
+              <svg class="icon" style="margin-bottom: -2px;">
+                <use xlink:href="#icon-link"></use>
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="album-info__subTitle">{{ currentTrack.subTitle || '--' }}
-          <a v-if="currentTrack.link" :href="currentTrack.link" target="_blank" style="color: inherit;">
-            <svg class="icon" style="margin-bottom: -2px;">
-              <use xlink:href="#icon-link"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
+      </transition>
       <!-- 進度條 -->
       <div class="progress" ref="progress">
         <div class="progress__duration">{{ duration }}</div>
@@ -183,7 +185,9 @@ export default {
       audio: null,
       tracks,
       prevTracks: [],
-      currentTrack: {},
+      currentTrack: {
+        cover: ' '
+      },
       currentTrackIdx: 0,
       duration: '--:--',
       currentTime: '--:--',
@@ -315,7 +319,7 @@ export default {
       this.audio.src = this.currentTrack.source;
       setTimeout(() => {
         this.isPlaying ? this.audio.play() : this.audio.pause();
-      }, 100);
+      }, 200);
     },
     handleVisibilityChange() {
       if (document.hidden) {

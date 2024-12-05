@@ -2,7 +2,7 @@ export const tracks = [
   {
     "id": 1,
     "title": "喜歡星期一（曾經）",
-    "subTitle": "高氏 DJ 週一鉅獻",
+    "subTitle": "高氏 DJ 熱情獻唱",
     "cover": new URL('@/assets/images/1.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/1.mp3', import.meta.url).href,
     "link": "https://x.com/shinwon_coolkid/status/1490688880752074756",
@@ -250,7 +250,7 @@ export const tracks = [
     "cover": new URL('@/assets/images/31.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/31.mp3', import.meta.url).href,
     "link": "https://www.youtube.com/live/QoCefGtXTDM?si=Q9ikqorR80FlqItW&t=4652",
-    "limited": "今日"
+    "limited": "1010"
   },
   {
     "id": 32,
@@ -339,7 +339,7 @@ export const tracks = [
     "cover": new URL('@/assets/images/42.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/42.mp3', import.meta.url).href,
     "link": "https://weverse.io/pentagon/live/4-110662923?hl=zh-tw",
-    "limited": "今日"
+    "limited": "1225"
   },
   {
     "id": 43,
@@ -405,7 +405,7 @@ export const tracks = [
     "cover": new URL('@/assets/images/50.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/50.mp3', import.meta.url).href,
     "link": "https://www.instagram.com/p/BrPrj5sn4RB/?utm_source=ig_web_copy_link",
-    "limited": "今日"
+    "limited": "1211"
   },
   {
     "id": 51,
@@ -487,6 +487,6 @@ export const tracks = [
     "cover": new URL('@/assets/images/60.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/60.mp3', import.meta.url).href,
     "link": "https://x.com/Springviolette/status/1476932857125875716",
-    "limited": "今日"
+    "limited": "1231"
   }
 ]
