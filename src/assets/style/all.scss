@@ -320,7 +320,7 @@ body {
 
 .move-enter-from,
 .move-leave-to {
-  opacity: 0.5;
+  opacity: 0;
   transform: translateY(-6px);
 }
 
@@ -332,7 +332,7 @@ body {
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .fade-enter-to, 

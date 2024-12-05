@@ -47,8 +47,9 @@
       <transition name="fade" mode="out-in">
         <div class="album-info" :key="currentTrack.id">
           <div class="album-info__title">
-            <span v-if="currentTrack.limited" class="badge">{{ currentTrack.limited }}限定
-            </span>{{ currentTrack.title || '--'}}
+            <span v-if="currentTrack.limited" class="badge">
+              {{ isNaN(currentTrack.limited) ? currentTrack.limited : currentTrack.limited+' '}}限定</span
+              >{{ currentTrack.title || '--'}}
           </div>
           <div class="album-info__subTitle">{{ currentTrack.subTitle || '--' }}
             <a v-if="currentTrack.link" :href="currentTrack.link" target="_blank" style="color: inherit;">
