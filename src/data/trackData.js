@@ -2,7 +2,7 @@ export const tracks = [
   {
     "id": 1,
     "title": "喜歡星期一（曾經）",
-    "subTitle": "高氏 DJ 熱情獻唱",
+    "subTitle": "高 DJ 熱情獻唱",
     "cover": new URL('@/assets/images/1.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/1.mp3', import.meta.url).href,
     "link": "https://x.com/shinwon_coolkid/status/1490688880752074756",
@@ -14,7 +14,7 @@ export const tracks = [
     "subTitle": "230215 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/2.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/2.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/X5DUHbrXxp8?si=OhE7R4SSa0bSiD7v",
+    "link": "https://www.youtube.com/live/X5DUHbrXxp8?si=34Cz8iXL1dyjni1q&t=5730",
     "limited": "夜間"
   },
   {
@@ -23,12 +23,12 @@ export const tracks = [
     "subTitle": "230208 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/3.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/3.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/EEbEh4MYNSU?si=h4WZaaByp6DN_6nJ",
+    "link": "https://www.youtube.com/live/EEbEh4MYNSU?si=hUKfiyN8C_8eB-Qb&t=7244",
     "limited": "夜間"
   },
   {
     "id": 4,
-    "title": "人生歌曲 - 네모의 꿈",
+    "title": "人生歌曲 네모의 꿈",
     "subTitle": "200604 直播",
     "cover": new URL('@/assets/images/4.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/4.mp3', import.meta.url).href,
@@ -72,7 +72,7 @@ export const tracks = [
     "subTitle": "非常律師禹英禑 ost - 상상",
     "cover": new URL('@/assets/images/9.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/9.mp3', import.meta.url).href,
-    "link": "https://youtu.be/LPZDKf29IRs?si=9maPUb43QxYxSZbU"
+    "link": "https://x.com/tagonideul/status/1619898921110880259"
   },
   {
     "id": 10,
@@ -148,7 +148,7 @@ export const tracks = [
   },
   {
     "id": 19,
-    "title": "WTH（傻瓜版）",
+    "title": "WTH（傻瓜兄弟版）",
     "subTitle": "210128 直播",
     "cover": new URL('@/assets/images/19.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/19.mp3', import.meta.url).href,
@@ -157,7 +157,7 @@ export const tracks = [
   {
     "id": 20,
     "title": "漸行漸遠（멀어져）",
-    "subTitle": "펜타곤메이커 - 初個人舞台",
+    "subTitle": "펜타곤메이커 - 初個人舞台（詞）",
     "cover": new URL('@/assets/images/20.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/20.mp3', import.meta.url).href,
     "link": "https://youtu.be/qlqcruuTQgQ?si=bx55kvKH0aZgz5fa"
@@ -262,7 +262,7 @@ export const tracks = [
   },
   {
     "id": 33,
-    "title": "oops, 心空警告",
+    "title": "Oops, 心空警告",
     "subTitle": "230330 @ebsfmnight",
     "cover": new URL('@/assets/images/33.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/33.mp3', import.meta.url).href,
@@ -294,7 +294,7 @@ export const tracks = [
   },
   {
     "id": 37,
-    "title": "只是切了 18 顆西瓜而已",
+    "title": "只是自己切了 18 顆而已",
     "subTitle": "PENTAGON’s Variety Lab #06",
     "cover": new URL('@/assets/images/37.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/37.mp3', import.meta.url).href,
@@ -303,7 +303,7 @@ export const tracks = [
   {
     "id": 38,
     "title": "與老師的吉他即興",
-    "subTitle": "191217 官推，Nathan 還有留言",
+    "subTitle": "191217 官推，Nathan 有留言",
     "cover": new URL('@/assets/images/38.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/38.mp3', import.meta.url).href,
     "link": "https://x.com/CUBE_PTG/status/1206896986131070977"
@@ -338,7 +338,7 @@ export const tracks = [
     "subTitle": "181225 直播",
     "cover": new URL('@/assets/images/42.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/42.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-110662923?hl=zh-tw",
+    "link": "https://weverse.io/pentagon/live/4-110662923?hl=zh-tw&begin=3611",
     "limited": "1225"
   },
   {
@@ -474,7 +474,7 @@ export const tracks = [
   },
   {
     "id": 59,
-    "title": "you see? we made it!",
+    "title": "YOU SEE? WE MADE IT!",
     "subTitle": "201220 一位直播",
     "cover": new URL('@/assets/images/59.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/59.mp3', import.meta.url).href,
