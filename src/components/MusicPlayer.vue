@@ -1,8 +1,7 @@
 <template>
   <div class="wrapper" id="music">
-    <div class="title">- <span class="title-spacing">今日的</span>BGM -</div>
+    <div class="title">《<span class="title-spacing">今日的</span>BGM》</div>
     <div class="player">
-      <!-- 圖片 & 控制按鈕 -->
       <div class="player__top">
         <!-- 圖片 -->
         <div class="player-cover">
@@ -93,6 +92,7 @@ export default {
       tracksOfToday: [],
       limitedPool: [],
       nextCount: 0,
+      priorityId: 0,
       prevTracks: [],
       currentTrack: {
         cover: ' '
@@ -116,10 +116,10 @@ export default {
       this.isPlaying = !this.audio.paused;
     },
     generateTime() {
-      // 更新進度條
+      // update progress bar
       let width = ((this.audio.currentTime / this.audio.duration) * 100).toFixed(2);
       this.barWidthPercent = width + "%";
-      // 更新目前時間
+      // update current time
       if(!this.audio.currentTime && !this.isPlaying){
         this.currentTime = '--:--';
       } else {
@@ -156,8 +156,8 @@ export default {
         return
       }
       this.audio.pause();
-      const prevTrackId = this.prevTracks[this.prevTracks.length - 1]
-      this.currentTrack = this.findTrack(prevTrackId);
+      const prevTrackId = this.prevTracks[this.prevTracks.length - 1];
+      this.currentTrack = this.findTrack(this.tracksOfToday, prevTrackId);
       this.prevTracks.pop();
       this.resetPlayer();
     },
@@ -167,17 +167,34 @@ export default {
       this.nextCount++;
       this.audio.pause();
 
-      if (this.nextCount <= this.limitedPool.length){
-        this.currentTrack = this.tracksOfToday[this.nextCount];
-      } else {
-        const tracksOtherThenCurrent = this.tracksOfToday.filter(t => t.id !== this.currentTrack.id);
-        this.currentTrack = this.shuffleArray(tracksOtherThenCurrent)[0];
-      }
+      const guaranteed = 4;
+      const copy = JSON.parse(JSON.stringify(this.limitedPool));
+      const limitedTracksId = this.limitedPool.filter(t => t.limited).map(obj => obj.id);
+      const oneLimitListened = limitedTracksId.some(id => this.prevTracks.includes(id));
 
+      const selectNextTrack = (arr) => {
+        const [opt1, opt2] = this.shuffleArray(arr);
+        if (opt1.id === this.prevTracks[this.prevTracks.length - 1]) {
+          return opt2;
+        } else {
+          return opt1;
+        }
+      };
+
+      if (!oneLimitListened && this.priorityId) {
+        this.currentTrack = this.findTrack(this.limitedPool, this.priorityId);
+      } else if (this.nextCount < guaranteed && !oneLimitListened) {
+        this.currentTrack = selectNextTrack(copy);
+      } else if (this.nextCount === guaranteed && !oneLimitListened) {
+        const randomIdx = Math.floor(Math.random() * limitedTracksId.length);
+        this.currentTrack = this.findTrack(this.limitedPool, limitedTracksId[randomIdx]);
+      } else {
+        this.currentTrack = selectNextTrack(this.tracksOfToday);
+      }
       this.resetPlayer();
     },
-    findTrack(id) {
-      return this.tracksOfToday.find((t) => t.id === id );
+    findTrack(arr, id) {
+      return arr.find((t) => t.id === id );
     },
     getFactors(){
       const time = new Date();
@@ -198,7 +215,7 @@ export default {
       }
 
       if(taiwanHour >= 21 || taiwanHour <= 3){
-        result.push('夜間')
+        result.push('夜間');
       }
 
       return result;
@@ -220,19 +237,20 @@ export default {
       const shuffledNormalTracks = this.shuffleArray(withoutLimit);
 
       if (withValidLimit.length) {
-        const fillerTracks = shuffledNormalTracks.splice(0, 4);
-        const randomIdx = Math.floor(Math.random() * withValidLimit.length)
-        this.limitedPool = this.shuffleArray([withValidLimit[randomIdx], ...fillerTracks]);
+        const fillerTracks = shuffledNormalTracks.splice(0, 19);
+        this.limitedPool = this.shuffleArray([...withValidLimit, ...fillerTracks]);
         this.tracksOfToday = [...this.limitedPool, ...shuffledNormalTracks];
       } else {
         this.tracksOfToday = shuffledNormalTracks;
       }
 
       if (todayPriority) {
-        this.tracksOfToday.unshift(todayPriority);
+        this.priorityId = todayPriority.id;
+
+        const idx = Math.floor(Math.random() * 2); // 0 o 1
+        this.limitedPool.splice(idx, 0, todayPriority);
+        this.tracksOfToday.splice(idx, 0, todayPriority);
       }
-      
-      // console.log(this.limitedPool);
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -246,7 +264,7 @@ export default {
       this.audio.src = this.currentTrack.source;
       setTimeout(() => {
         this.isPlaying ? this.audio.play() : this.audio.pause();
-      }, 200);
+      }, 100);
     },
     handleVisibilityChange() {
       if (document.hidden) {
@@ -272,8 +290,6 @@ export default {
     document.addEventListener('visibilitychange', this.handleVisibilityChange);
     this.limitedAndPriority();
 
-    // console.log(this.tracksOfToday);
-
     this.currentTrack = this.tracksOfToday[0];
     this.audio.src = this.currentTrack.source;
 
@@ -286,7 +302,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-</style>
