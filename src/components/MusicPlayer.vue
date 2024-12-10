@@ -89,10 +89,12 @@ export default {
     return {
       audio: null,
       tracks,
+      preloadedAudios: [],
       tracksOfToday: [],
       limitedPool: [],
-      nextCount: 0,
       priorityId: 0,
+      nextCount: 0,
+      oneLimitListened: false,
       prevTracks: [],
       currentTrack: {
         cover: ' '
@@ -102,13 +104,19 @@ export default {
       barWidthPercent: 0,
       isPlaying: false,
       shuffleMode: false,
-      preTrackBtnStyle: 0.3,
       liked: false,
     };
   },
   emits: ['loaded'],
   components: {
     SvgDefs,
+  },
+  watch: {
+    "currentTrack.limited"(){
+      if(this.currentTrack.limited){
+        this.oneLimitListened = true;
+      }
+    }
   },
   methods: {
     togglePlay() {
@@ -170,7 +178,6 @@ export default {
       const guaranteed = 4;
       const limitedPoolCopy = JSON.parse(JSON.stringify(this.limitedPool));
       const limitedTracksId = this.limitedPool.filter(t => t.limited).map(obj => obj.id);
-      const oneLimitListened = limitedTracksId.some(id => this.prevTracks.includes(id));
 
       const selectNextTrack = (arr) => {
         const [opt1, opt2] = this.shuffleArray(arr);
@@ -181,11 +188,11 @@ export default {
         }
       };
 
-      if (!oneLimitListened && this.priorityId) {
+      if (!this.oneLimitListened && this.priorityId) {
         this.currentTrack = this.findTrack(this.limitedPool, this.priorityId);
-      } else if (this.limitedPool.length && this.nextCount < guaranteed && !oneLimitListened) {
+      } else if (this.limitedPool.length && this.nextCount < guaranteed && !this.oneLimitListened) {
         this.currentTrack = selectNextTrack(limitedPoolCopy);
-      } else if (this.limitedPool.length && this.nextCount === guaranteed && !oneLimitListened) {
+      } else if (this.limitedPool.length && this.nextCount === guaranteed && !this.oneLimitListened) {
         const randomIdx = Math.floor(Math.random() * limitedTracksId.length);
         this.currentTrack = this.findTrack(this.limitedPool, limitedTracksId[randomIdx]);
       } else {
@@ -262,44 +269,43 @@ export default {
     pauseAndReset() {
       this.audio.pause();
       this.audio.currentTime = 0;
-      this.audio.src = '';
-      this.audio.load(); 
       this.barWidthPercent = 0;
     },
     setAudioSrc() {
-      this.audio.src = this.currentTrack.source;
-      this.audio.load(); 
+      this.audio = this.preloadedAudios.find(audio => audio.src === this.currentTrack.source);
       
-      this.audio.oncanplaythrough = () => {
-        this.isPlaying ? this.audio.play() : this.audio.pause();
+      this.audio.ontimeupdate = () => {
+        this.generateTime();
       };
+      this.audio.onloadedmetadata = () => {
+        this.duration = this.formatTime(this.audio.duration);
+      };
+      this.audio.onended = () => {
+        this.isPlaying = true;
+        this.shuffleMode ? this.nextRandomTrack() : this.audio.play();
+      };
+
+      this.isPlaying ? this.audio.play() : this.audio.pause();
     },
     handleVisibilityChange() {
       if (document.hidden) {
         this.audio.pause();
         this.isPlaying = false;
       }
+    },
+    preloadAudio(trackSource) {
+      const audio = new Audio(trackSource);
+      audio.preload = 'auto';
+      return audio;
     }
   },
-  created() {
-    this.audio = new Audio();
-    this.audio.ontimeupdate = () => {
-      this.generateTime();
-    };
-    this.audio.onloadedmetadata = () => {
-      this.duration = this.formatTime(this.audio.duration);
-    };
-    this.audio.onended = () => {
-      this.isPlaying = true;
-      this.shuffleMode ? this.nextRandomTrack() : this.setAudioSrc();
-    };
-  },
   mounted() {
-    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+    document.addEventListener('visibilitychange', this.handleVisibilityChange, 300);
+    
     this.limitedAndPriority();
-
+    this.preloadedAudios = this.tracksOfToday.map(t => this.preloadAudio(t.source));
     this.currentTrack = this.tracksOfToday[0];
-    this.audio.src = this.currentTrack.source;
+    this.setAudioSrc();
 
     setTimeout(() => {
       this.$emit('loaded');
