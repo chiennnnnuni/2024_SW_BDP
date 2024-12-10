@@ -181,11 +181,11 @@ export default {
         }
       };
 
-      if (!oneLimitListened && this.priorityId) {
+      if (!oneLimitListened && this.priorityId && this.limitedPool.length) {
         this.currentTrack = this.findTrack(this.limitedPool, this.priorityId);
-      } else if (this.nextCount < guaranteed && !oneLimitListened) {
+      } else if (this.nextCount < guaranteed && !oneLimitListened && this.limitedPool.length) {
         this.currentTrack = selectNextTrack(copy);
-      } else if (this.nextCount === guaranteed && !oneLimitListened) {
+      } else if (this.nextCount === guaranteed && !oneLimitListened && this.limitedPool.length) {
         const randomIdx = Math.floor(Math.random() * limitedTracksId.length);
         this.currentTrack = this.findTrack(this.limitedPool, limitedTracksId[randomIdx]);
       } else {
