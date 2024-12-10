@@ -279,9 +279,14 @@ export default {
       this.audio.ontimeupdate = () => {
         this.generateTime();
       };
-      this.audio.onloadedmetadata = () => {
+      
+      if (this.audio.readyState >= 1) { // HAVE_METADATA
         this.duration = this.formatTime(this.audio.duration);
-      };
+      } else {
+        this.audio.onloadedmetadata = () => {
+            this.duration = this.formatTime(this.audio.duration);
+        };
+      }
       this.audio.onended = () => {
         this.isPlaying = true;
         this.shuffleMode ? this.nextRandomTrack() : this.audio.play();
