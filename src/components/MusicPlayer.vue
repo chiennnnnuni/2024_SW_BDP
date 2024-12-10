@@ -155,17 +155,17 @@ export default {
       if (!this.prevTracks.length){
         return
       }
-      this.audio.pause();
+      this.pauseAndReset();
       const prevTrackId = this.prevTracks[this.prevTracks.length - 1];
       this.currentTrack = this.findTrack(this.tracksOfToday, prevTrackId);
       this.prevTracks.pop();
-      this.resetPlayer();
+      this.setAudioSrc();
     },
     nextRandomTrack(){
+      this.pauseAndReset();
       this.prevTracks.push(this.currentTrack.id);
       this.shuffleMode = true;
       this.nextCount++;
-      this.audio.pause();
 
       const guaranteed = 4;
       const limitedPoolCopy = JSON.parse(JSON.stringify(this.limitedPool));
@@ -191,7 +191,7 @@ export default {
       } else {
         this.currentTrack = selectNextTrack(this.tracksOfToday);
       }
-      this.resetPlayer();
+      this.setAudioSrc();
     },
     findTrack(arr, id) {
       return arr.find((t) => t.id === id );
@@ -259,10 +259,18 @@ export default {
       }
       return array;
     },
-    resetPlayer() {
+    pauseAndReset() {
+      this.audio.pause();
+      this.audio.currentTime = 0;
+      this.audio.src = '';
       this.barWidthPercent = 0;
+    },
+    setAudioSrc() {
       this.audio.src = this.currentTrack.source;
-      setTimeout(() => {
+      
+      let timer;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
         this.isPlaying ? this.audio.play() : this.audio.pause();
       }, 100);
     },
@@ -283,7 +291,7 @@ export default {
     };
     this.audio.onended = () => {
       this.isPlaying = true;
-      this.shuffleMode ? this.nextRandomTrack() : this.resetPlayer();
+      this.shuffleMode ? this.nextRandomTrack() : this.setAudioSrc();
     };
   },
   mounted() {
