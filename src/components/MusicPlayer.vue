@@ -270,7 +270,9 @@ export default {
       this.audio.src = this.currentTrack.source;
       this.audio.load(); 
       
-      this.isPlaying ? this.audio.play() : this.audio.pause();
+      this.audio.oncanplaythrough = () => {
+        this.isPlaying ? this.audio.play() : this.audio.pause();
+      };
     },
     handleVisibilityChange() {
       if (document.hidden) {
