@@ -168,7 +168,7 @@ export default {
       this.audio.pause();
 
       const guaranteed = 4;
-      const copy = JSON.parse(JSON.stringify(this.limitedPool));
+      const limitedPoolCopy = JSON.parse(JSON.stringify(this.limitedPool));
       const limitedTracksId = this.limitedPool.filter(t => t.limited).map(obj => obj.id);
       const oneLimitListened = limitedTracksId.some(id => this.prevTracks.includes(id));
 
@@ -181,11 +181,11 @@ export default {
         }
       };
 
-      if (!oneLimitListened && this.priorityId && this.limitedPool.length) {
+      if (!oneLimitListened && this.priorityId) {
         this.currentTrack = this.findTrack(this.limitedPool, this.priorityId);
-      } else if (this.nextCount < guaranteed && !oneLimitListened && this.limitedPool.length) {
-        this.currentTrack = selectNextTrack(copy);
-      } else if (this.nextCount === guaranteed && !oneLimitListened && this.limitedPool.length) {
+      } else if (this.limitedPool.length && this.nextCount < guaranteed && !oneLimitListened) {
+        this.currentTrack = selectNextTrack(limitedPoolCopy);
+      } else if (this.limitedPool.length && this.nextCount === guaranteed && !oneLimitListened) {
         const randomIdx = Math.floor(Math.random() * limitedTracksId.length);
         this.currentTrack = this.findTrack(this.limitedPool, limitedTracksId[randomIdx]);
       } else {
@@ -236,7 +236,7 @@ export default {
       
       const shuffledNormalTracks = this.shuffleArray(withoutLimit);
 
-      if (withValidLimit.length) {
+      if (withValidLimit.length || todayPriority) {
         const fillerTracks = shuffledNormalTracks.splice(0, 19);
         this.limitedPool = this.shuffleArray([...withValidLimit, ...fillerTracks]);
         this.tracksOfToday = [...this.limitedPool, ...shuffledNormalTracks];
