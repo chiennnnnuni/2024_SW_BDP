@@ -105,6 +105,7 @@ export default {
       isPlaying: false,
       shuffleMode: false,
       liked: false,
+      imageCache: {},
     };
   },
   emits: ['loaded'],
@@ -198,6 +199,7 @@ export default {
       } else {
         this.currentTrack = selectNextTrack(this.tracksOfToday);
       }
+
       this.setAudioSrc();
     },
     findTrack(arr, id) {
@@ -243,7 +245,7 @@ export default {
       
       const shuffledNormalTracks = this.shuffleArray(withoutLimit);
 
-      if (withValidLimit.length || todayPriority) {
+      if (todayPriority || withValidLimit.length) {
         const fillerTracks = shuffledNormalTracks.splice(0, 19);
         this.limitedPool = this.shuffleArray([...withValidLimit, ...fillerTracks]);
         this.tracksOfToday = [...this.limitedPool, ...shuffledNormalTracks];
@@ -297,16 +299,27 @@ export default {
       const audio = new Audio(trackSource);
       audio.preload = 'auto';
       return audio;
-    }
+    },
+    preloadImages(imageUrls) {
+      imageUrls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+        this.imageCache[url] = img;
+      });
+    },
   },
   mounted() {
     document.addEventListener('visibilitychange', this.handleVisibilityChange, 300);
     
     this.limitedAndPriority();
+
     this.preloadedAudios = this.tracksOfToday.map(t => this.preloadAudio(t.source));
     this.currentTrack = this.tracksOfToday[0];
     this.setAudioSrc();
 
+    const coverUrls = this.tracksOfToday.map((t) => t.cover);
+    this.preloadImages(coverUrls);
+    
     setTimeout(() => {
       this.$emit('loaded');
     }, 1000); 
