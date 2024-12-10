@@ -263,16 +263,14 @@ export default {
       this.audio.pause();
       this.audio.currentTime = 0;
       this.audio.src = '';
+      this.audio.load(); 
       this.barWidthPercent = 0;
     },
     setAudioSrc() {
       this.audio.src = this.currentTrack.source;
+      this.audio.load(); 
       
-      let timer;
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        this.isPlaying ? this.audio.play() : this.audio.pause();
-      }, 100);
+      this.isPlaying ? this.audio.play() : this.audio.pause();
     },
     handleVisibilityChange() {
       if (document.hidden) {
