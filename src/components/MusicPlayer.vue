@@ -246,19 +246,21 @@ export default {
       const shuffledNormalTracks = this.shuffleArray(withoutLimit);
 
       if (todayPriority || withValidLimit.length) {
+        let priorityPool = [];
+        if (todayPriority) {
+          this.priorityId = todayPriority.id;
+          const priorityFiller = shuffledNormalTracks.splice(0, 1)[0];
+          const idx = Math.floor(Math.random() * 2); // 0 or 1
+          priorityPool = idx === 0 ? [todayPriority, priorityFiller] : [priorityFiller, todayPriority];
+        }
+
         const fillerTracks = shuffledNormalTracks.splice(0, 19);
         this.limitedPool = this.shuffleArray([...withValidLimit, ...fillerTracks]);
+
+        this.limitedPool = [...priorityPool, ...this.limitedPool];
         this.tracksOfToday = [...this.limitedPool, ...shuffledNormalTracks];
       } else {
         this.tracksOfToday = shuffledNormalTracks;
-      }
-
-      if (todayPriority) {
-        this.priorityId = todayPriority.id;
-
-        const idx = Math.floor(Math.random() * 2); // 0 o 1
-        this.limitedPool.splice(idx, 0, todayPriority);
-        this.tracksOfToday.splice(idx, 0, todayPriority);
       }
     },
     shuffleArray(array) {
