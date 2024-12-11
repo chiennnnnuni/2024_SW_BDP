@@ -469,7 +469,8 @@ export const tracks = [
     "subTitle": "펜토리 - 필리핀 프로모션 비하인드!",
     "cover": new URL('@/assets/images/58.jpg', import.meta.url).href,
     "source": new URL('@/assets/audio/58.mp3', import.meta.url).href,
-    "link": "https://x.com/shinwonthinkers/status/1666829073111470080"
+    "link": "https://x.com/shinwonthinkers/status/1666829073111470080",
+    "limited": "夜間"
   },
   {
     "id": 59,
