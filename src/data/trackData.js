@@ -14,7 +14,7 @@ export const tracks = [
     "subTitle": "230215 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/2.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/2.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/X5DUHbrXxp8?si=34Cz8iXL1dyjni1q&t=5730",
+    "link": "https://www.youtube.com/live/X5DUHbrXxp8?t=5730",
     "limited": "夜間"
   },
   {
@@ -23,7 +23,7 @@ export const tracks = [
     "subTitle": "230208 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/3.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/3.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/EEbEh4MYNSU?si=hUKfiyN8C_8eB-Qb&t=7244",
+    "link": "https://www.youtube.com/live/EEbEh4MYNSU?t=7244",
     "limited": "夜間"
   },
   {
@@ -32,7 +32,7 @@ export const tracks = [
     "subTitle": "200604 直播",
     "cover": new URL('@/assets/images/4.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/4.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-110663002?hl=zh-tw&begin=923"
+    "link": "https://weverse.io/pentagon/live/4-110663002?begin=923"
   },
   {
     "id": 5,
@@ -40,7 +40,7 @@ export const tracks = [
     "subTitle": "231007 直播",
     "cover": new URL('@/assets/images/5.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/5.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-135865427?hl=zh-tw&begin=2374"
+    "link": "https://weverse.io/pentagon/live/4-135865427?begin=2374"
   },
   {
     "id": 6,
@@ -48,7 +48,7 @@ export const tracks = [
     "subTitle": "220923 싱포레스트2",
     "cover": new URL('@/assets/images/6.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/6.mp3', import.meta.url).href,
-    "link": "https://youtu.be/el4zUbADts8?si=awhrobhPNKNd-3Sg"
+    "link": "https://youtu.be/el4zUbADts8"
   },
   {
     "id": 7,
@@ -56,7 +56,7 @@ export const tracks = [
     "subTitle": "220916 싱포레스트2",
     "cover": new URL('@/assets/images/7.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/7.mp3', import.meta.url).href,
-    "link": "https://youtu.be/ZTL44CEkl0Y?si=WNVC5TeIBO8w6YBT"
+    "link": "https://youtu.be/ZTL44CEkl0Y"
   },
   {
     "id": 8,
@@ -64,7 +64,7 @@ export const tracks = [
     "subTitle": "2023 PADO 演唱會電吉他出道舞台",
     "cover": new URL('@/assets/images/8.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/8.mp3', import.meta.url).href,
-    "link": "https://youtu.be/5CsKhTm2Rxc?si=iNTQiiNMd6FbRQlM"
+    "link": "https://youtu.be/5CsKhTm2Rxc"
   },
   {
     "id": 9,
@@ -80,7 +80,7 @@ export const tracks = [
     "subTitle": "231218 直播",
     "cover": new URL('@/assets/images/10.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/10.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-143573534?hl=zh-tw&begin=3451"
+    "link": "https://weverse.io/pentagon/live/3-143573534?begin=3451"
   },
   {
     "id": 11,
@@ -88,7 +88,7 @@ export const tracks = [
     "subTitle": "信源日記",
     "cover": new URL('@/assets/images/11.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/11.mp3', import.meta.url).href,
-    "link": "https://youtu.be/C3yhJvfPkuo?si=5PggtcTAOELPWxT_"
+    "link": "https://youtu.be/C3yhJvfPkuo"
   },
   {
     "id": 12,
@@ -96,7 +96,7 @@ export const tracks = [
     "subTitle": "231222 聲音信",
     "cover": new URL('@/assets/images/12.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/12.mp3', import.meta.url).href,
-    "link": "https://www.instagram.com/reel/C1H6iGNP0hr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    "link": "https://www.instagram.com/reel/C1H6iGNP0hr/"
   },
   {
     "id": 13,
@@ -104,7 +104,7 @@ export const tracks = [
     "subTitle": "펜토리 #49",
     "cover": new URL('@/assets/images/13.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/13.mp3', import.meta.url).href,
-    "link": "https://youtu.be/QkHmBxipgwM?si=p8UENIKxxmQgfi-o&t=579"
+    "link": "https://youtu.be/QkHmBxipgwM?t=579"
   },
   {
     "id": 14,
@@ -112,7 +112,7 @@ export const tracks = [
     "subTitle": "迷 7 - Just Do It Yo!!（詞曲）",
     "cover": new URL('@/assets/images/14.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/14.mp3', import.meta.url).href,
-    "link": "https://youtu.be/QqKsMxVLK2o?si=vKJ4YxUMV2SIBKm1&t=593"
+    "link": "https://youtu.be/QqKsMxVLK2o?t=593"
   },
   {
     "id": 15,
@@ -120,7 +120,7 @@ export const tracks = [
     "subTitle": "迷 8 - Alien（詞）",
     "cover": new URL('@/assets/images/15.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/15.mp3', import.meta.url).href,
-    "link": "https://youtu.be/pS08EQ_bFmc?si=sv_UUsBjHfr0tlTk&t=163"
+    "link": "https://youtu.be/pS08EQ_bFmc?t=163"
   },
   {
     "id": 16,
@@ -128,7 +128,7 @@ export const tracks = [
     "subTitle": "Genius（詞曲）",
     "cover": new URL('@/assets/images/16.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/16.mp3', import.meta.url).href,
-    "link": "https://youtu.be/BCeeJAxUoos?si=0V3ufpuFMSUrkUyA"
+    "link": "https://youtu.be/BCeeJAxUoos"
   },
   {
     "id": 17,
@@ -136,7 +136,7 @@ export const tracks = [
     "subTitle": "迷 12 - One shot（詞曲）",
     "cover": new URL('@/assets/images/17.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/17.mp3', import.meta.url).href,
-    "link": "https://youtu.be/YEagPLV0kZg?si=DJR-5TH1SrsTjvUZ"
+    "link": "https://youtu.be/YEagPLV0kZg"
   },
   {
     "id": 18,
@@ -144,7 +144,7 @@ export const tracks = [
     "subTitle": "WTH（詞曲）",
     "cover": new URL('@/assets/images/18.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/18.mp3', import.meta.url).href,
-    "link": "https://youtu.be/D8FEtt-3Tqo?si=paEIZvDMma2MARQE"
+    "link": "https://youtu.be/D8FEtt-3Tqo"
   },
   {
     "id": 19,
@@ -152,7 +152,7 @@ export const tracks = [
     "subTitle": "210128 直播",
     "cover": new URL('@/assets/images/19.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/19.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/2-111431482?hl=zh-tw&begin=1900"
+    "link": "https://weverse.io/pentagon/live/2-111431482?begin=1900"
   },
   {
     "id": 20,
@@ -160,7 +160,7 @@ export const tracks = [
     "subTitle": "펜타곤메이커 - 初個人舞台（詞）",
     "cover": new URL('@/assets/images/20.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/20.mp3', import.meta.url).href,
-    "link": "https://youtu.be/qlqcruuTQgQ?si=bx55kvKH0aZgz5fa"
+    "link": "https://youtu.be/qlqcruuTQgQ"
   },
   {
     "id": 21,
@@ -168,7 +168,7 @@ export const tracks = [
     "subTitle": "펜타곤메이커 - 再審查舞台",
     "cover": new URL('@/assets/images/21.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/21.mp3', import.meta.url).href,
-    "link": "https://youtu.be/yfMgV2gNsHA?si=-C4WlQqlFbTqJNEc"
+    "link": "https://youtu.be/yfMgV2gNsHA"
   },
   {
     "id": 22,
@@ -176,7 +176,7 @@ export const tracks = [
     "subTitle": "약속（With UNIVERSE）",
     "cover": new URL('@/assets/images/22.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/22.mp3', import.meta.url).href,
-    "link": "https://youtu.be/FUJ5GWZqhko?si=XNps2F935jmdvCIz"
+    "link": "https://youtu.be/FUJ5GWZqhko"
   },
   {
     "id": 23,
@@ -184,7 +184,7 @@ export const tracks = [
     "subTitle": "2021 Tipco 代言歌曲",
     "cover": new URL('@/assets/images/23.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/23.mp3', import.meta.url).href,
-    "link": "https://youtu.be/5qMemfWRFPk?si=lzupHK1Be17T3Qxq"
+    "link": "https://youtu.be/5qMemfWRFPk"
   },
   {
     "id": 24,
@@ -201,7 +201,7 @@ export const tracks = [
     "subTitle": "Danny boy | Piano Cover 系列",
     "cover": new URL('@/assets/images/25.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/25.mp3', import.meta.url).href,
-    "link": "https://youtu.be/OMLbg2-vjrM?si=jF2McmbehAogcxNV"
+    "link": "https://youtu.be/OMLbg2-vjrM"
   },
   {
     "id": 26,
@@ -209,7 +209,7 @@ export const tracks = [
     "subTitle": "Beautiful Goodbye | Piano Cover 系列",
     "cover": new URL('@/assets/images/26.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/26.mp3', import.meta.url).href,
-    "link": "https://youtu.be/FPIyHcGVEbw?si=9gJa3FNSwRiFHbxn"
+    "link": "https://youtu.be/FPIyHcGVEbw"
   },
   {
     "id": 27,
@@ -217,7 +217,7 @@ export const tracks = [
     "subTitle": "Breathing in June | Piano Cover 系列",
     "cover": new URL('@/assets/images/27.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/27.mp3', import.meta.url).href,
-    "link": "https://youtu.be/obHyzxly4FM?si=U2uOx_fPeFjC9H-_"
+    "link": "https://youtu.be/obHyzxly4FM"
   },
   {
     "id": 28,
@@ -225,7 +225,7 @@ export const tracks = [
     "subTitle": "180628 直播",
     "cover": new URL('@/assets/images/28.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/28.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-110666042?hl=zh-tw"
+    "link": "https://weverse.io/pentagon/live/3-110666042"
   },
   {
     "id": 29,
@@ -233,7 +233,7 @@ export const tracks = [
     "subTitle": "200810 直播",
     "cover": new URL('@/assets/images/29.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/29.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/1-111438537?hl=zh-tw&begin=1018"
+    "link": "https://weverse.io/pentagon/live/1-111438537?begin=1018"
   },
   {
     "id": 30,
@@ -241,7 +241,7 @@ export const tracks = [
     "subTitle": "Weekly Idol EP.506",
     "cover": new URL('@/assets/images/30.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/30.mp3', import.meta.url).href,
-    "link": "https://youtu.be/73KXxTdIJYA?si=inMasnuZWjjXWfJ4"
+    "link": "https://youtu.be/73KXxTdIJYA"
   },
   {
     "id": 31,
@@ -249,7 +249,7 @@ export const tracks = [
     "subTitle": "241010 八週年 YT 直播",
     "cover": new URL('@/assets/images/31.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/31.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/QoCefGtXTDM?si=Q9ikqorR80FlqItW&t=4652",
+    "link": "https://www.youtube.com/live/QoCefGtXTDM?t=4652",
     "limited": "1010"
   },
   {
@@ -258,7 +258,7 @@ export const tracks = [
     "subTitle": "230223 @ebsfmnight",
     "cover": new URL('@/assets/images/32.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/32.mp3', import.meta.url).href,
-    "link": "https://www.instagram.com/reel/CpAnWcltKpv/?utm_source=ig_web_copy_link"
+    "link": "https://www.instagram.com/reel/CpAnWcltKpv/"
   },
   {
     "id": 33,
@@ -266,7 +266,7 @@ export const tracks = [
     "subTitle": "230330 @ebsfmnight",
     "cover": new URL('@/assets/images/33.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/33.mp3', import.meta.url).href,
-    "link": "https://www.instagram.com/reel/Cqau0nMpQpI/?utm_source=ig_web_copy_link"
+    "link": "https://www.instagram.com/reel/Cqau0nMpQpI/"
   },
   {
     "id": 34,
@@ -274,7 +274,7 @@ export const tracks = [
     "subTitle": "中島美嘉 - 曾經我也想過一了百了",
     "cover": new URL('@/assets/images/34.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/34.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-110666150?hl=zh-tw&begin=2453"
+    "link": "https://weverse.io/pentagon/live/3-110666150?begin=2453"
   },
   {
     "id": 35,
@@ -282,7 +282,7 @@ export const tracks = [
     "subTitle": "201028 直播",
     "cover": new URL('@/assets/images/35.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/35.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-110666150?hl=zh-tw&begin=505"
+    "link": "https://weverse.io/pentagon/live/3-110666150?begin=505"
   },
   {
     "id": 36,
@@ -290,7 +290,7 @@ export const tracks = [
     "subTitle": "홍홍홍 #18",
     "cover": new URL('@/assets/images/36.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/36.mp3', import.meta.url).href,
-    "link": "https://youtu.be/HXNyP1sL4gc?si=SSQb71deoAViEzid"
+    "link": "https://youtu.be/HXNyP1sL4gc"
   },
   {
     "id": 37,
@@ -298,7 +298,7 @@ export const tracks = [
     "subTitle": "PENTAGON’s Variety Lab #06",
     "cover": new URL('@/assets/images/37.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/37.mp3', import.meta.url).href,
-    "link": "https://youtu.be/-l24ChWxMBs?si=9lmIMe9Lu_n5DZZ8&t=856"
+    "link": "https://youtu.be/-l24ChWxMBs?t=856"
   },
   {
     "id": 38,
@@ -314,7 +314,7 @@ export const tracks = [
     "subTitle": "221122 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/39.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/39.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/kLDjVbdkgic?si=7Z15B-UB1G_7xBAP&t=2494"
+    "link": "https://www.youtube.com/live/kLDjVbdkgic?t=2494"
   },
   {
     "id": 40,
@@ -322,7 +322,7 @@ export const tracks = [
     "subTitle": "230401 고디 卸任感言",
     "cover": new URL('@/assets/images/40.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/40.mp3', import.meta.url).href,
-    "link": "https://www.youtube.com/live/OqSP4EzVIHo?si=qUACTpCZtFUOQSiT&t=6535"
+    "link": "https://www.youtube.com/live/OqSP4EzVIHo?t=6535"
   },
   {
     "id": 41,
@@ -330,7 +330,7 @@ export const tracks = [
     "subTitle": "210919 펜타곤의 밤의 라디오",
     "cover": new URL('@/assets/images/41.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/41.mp3', import.meta.url).href,
-    "link": "https://x.com/Springviolette/status/1439688459040563200?t=CHIlsjLT4Hmx6JG3fX42wQ&s=06"
+    "link": "https://x.com/Springviolette/status/1439688459040563200"
   },
   {
     "id": 42,
@@ -338,7 +338,7 @@ export const tracks = [
     "subTitle": "181225 直播",
     "cover": new URL('@/assets/images/42.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/42.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-110662923?hl=zh-tw&begin=3611",
+    "link": "https://weverse.io/pentagon/live/4-110662923?begin=3611",
     "limited": "1225"
   },
   {
@@ -347,7 +347,7 @@ export const tracks = [
     "subTitle": "180428 Simply K-Pop EP.309 ",
     "cover": new URL('@/assets/images/43.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/43.mp3', import.meta.url).href,
-    "link": "https://youtu.be/N6AmtEiILPY?si=MTkugPBIGE7beFs7&t=2962"
+    "link": "https://youtu.be/N6AmtEiILPY?t=2962"
   },
   {
     "id": 44,
@@ -355,7 +355,7 @@ export const tracks = [
     "subTitle": "210406 直播",
     "cover": new URL('@/assets/images/44.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/44.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-110663070?hl=zh-tw&begin=92"
+    "link": "https://weverse.io/pentagon/live/4-110663070?begin=92"
   },
   {
     "id": 45,
@@ -363,7 +363,7 @@ export const tracks = [
     "subTitle": "210525 [ARANoRaeBang]",
     "cover": new URL('@/assets/images/45.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/45.mp3', import.meta.url).href,
-    "link": "https://youtu.be/E_MZ-zJGDQ0?si=IHR8HVT-RlZFJRi0"
+    "link": "https://youtu.be/E_MZ-zJGDQ0"
   },
   {
     "id": 46,
@@ -371,7 +371,7 @@ export const tracks = [
     "subTitle": "[it's LIVE] ITZY - Not Shy",
     "cover": new URL('@/assets/images/46.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/46.mp3', import.meta.url).href,
-    "link": "https://youtu.be/-3Ii-GtRAHo?si=iLdO9Ll7zVk2JWa6"
+    "link": "https://youtu.be/-3Ii-GtRAHo"
   },
   {
     "id": 47,
@@ -379,7 +379,7 @@ export const tracks = [
     "subTitle": "201024 아이돌리그",
     "cover": new URL('@/assets/images/47.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/47.mp3', import.meta.url).href,
-    "link": "https://youtu.be/HyL6XMwkMe0?si=gPxGtYHxfGulylor",
+    "link": "https://youtu.be/HyL6XMwkMe0",
     "limited": "夜間"
   },
   {
@@ -388,7 +388,7 @@ export const tracks = [
     "subTitle": "210819 直播",
     "cover": new URL('@/assets/images/48.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/48.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-110666199?hl=zh-tw&begin=37"
+    "link": "https://weverse.io/pentagon/live/3-110666199?begin=37"
   },
   {
     "id": 49,
@@ -396,7 +396,7 @@ export const tracks = [
     "subTitle": "220826 直播",
     "cover": new URL('@/assets/images/49.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/49.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/4-110663124?hl=zh-tw&begin=307"
+    "link": "https://weverse.io/pentagon/live/4-110663124?begin=307"
   },
   {
     "id": 50,
@@ -404,7 +404,7 @@ export const tracks = [
     "subTitle": "펜토리 #70（壽星視角）",
     "cover": new URL('@/assets/images/50.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/50.mp3', import.meta.url).href,
-    "link": "https://www.instagram.com/p/BrPrj5sn4RB/?utm_source=ig_web_copy_link",
+    "link": "https://www.instagram.com/p/BrPrj5sn4RB/",
     "limited": "1211"
   },
   {
@@ -421,7 +421,7 @@ export const tracks = [
     "subTitle": "210731 Day6 Kiss the radio 推薦曲",
     "cover": new URL('@/assets/images/52.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/52.mp3', import.meta.url).href,
-    "link": "https://youtu.be/BZqX2mrKISo?si=2XpaoGOm7ZtcSnj0"
+    "link": "https://youtu.be/BZqX2mrKISo"
   },
   {
     "id": 53,
@@ -429,7 +429,7 @@ export const tracks = [
     "subTitle": "紅髮信源不能錯過",
     "cover": new URL('@/assets/images/53.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/53.mp3', import.meta.url).href,
-    "link": "https://youtu.be/O7hmscVAl_o?si=mle1Iq7ltyhPWDCG"
+    "link": "https://youtu.be/O7hmscVAl_o"
   },
   {
     "id": 54,
@@ -437,7 +437,7 @@ export const tracks = [
     "subTitle": "201219 直播",
     "cover": new URL('@/assets/images/54.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/54.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/2-111431474?hl=zh-tw&begin=1205"
+    "link": "https://weverse.io/pentagon/live/2-111431474?begin=1205"
   },
   {
     "id": 55,
@@ -461,7 +461,7 @@ export const tracks = [
     "subTitle": "是享受舞台的搖滾兔子！",
     "cover": new URL('@/assets/images/57.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/57.mp3', import.meta.url).href,
-    "link": "https://youtu.be/gpogh0bDopY?si=iTUg6p3P0f196CgB&t=1"
+    "link": "https://youtu.be/gpogh0bDopY"
   },
   {
     "id": 58,
@@ -478,7 +478,7 @@ export const tracks = [
     "subTitle": "201020 一位直播",
     "cover": new URL('@/assets/images/59.webp', import.meta.url).href,
     "source": new URL('@/assets/audio/59.mp3', import.meta.url).href,
-    "link": "https://weverse.io/pentagon/live/3-110666147?hl=zh-tw&begin=2240"
+    "link": "https://weverse.io/pentagon/live/3-110666147?begin=2240"
   },
   {
     "id": 60,
